@@ -32,13 +32,10 @@ def calculate_radius(point, h, k):
 def is_triangle(edged, p0, p1):
   rows =  len(edged) # number of rows
   cols = len(edged[0]) # number of cols
-
   print("p0", p0)
   print("p1", p1)
-
   slope = get_slope(p0,p1)
   b = get_b(p0,slope)
-
   def get_distribution(slope, b, p0):
     left_dist = 0
     right_dist = 0
@@ -57,7 +54,6 @@ def is_triangle(edged, p0, p1):
             right_dist += 1
     total_points = left_dist + right_dist
     return [left_dist*100/total_points,right_dist*100/total_points]
-
   dist = get_distribution(slope, b, p0)
   print("Point distribution", dist, "%")
   tolerance = 2
@@ -69,7 +65,6 @@ def is_triangle(edged, p0, p1):
 def is_circle(edged):
   rows =  len(edged) # number of rows
   cols = len(edged[0]) # number of cols
-
   xmax=0
   xmin=rows
   ymax=0
