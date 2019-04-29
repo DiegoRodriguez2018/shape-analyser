@@ -4,7 +4,7 @@ import shape
 
 #reading file
 # filename = 'circle.png'
-# filename = 'triangle.png'
+filename = 'img/triangle.png'
 # filename = 'quadrilateral.png'
 # filename = 'quadrilateral2.png'
 # filename = 'trapezoid.png'
@@ -35,13 +35,19 @@ def get_bottom_left():
 p0 = get_top_right()
 p1 = get_bottom_left()
 
-if shape.is_triangle(edged, p0, p1):
-  print("It's a triangle")
-elif shape.is_circle(edged):
-  print("It's a circle")
-else:
-  print("It's a quadrilateral")
+def analyze(edged, p0, p1):
+  if shape.is_triangle(edged, p0, p1):
+    return("It's a triangle")
+  elif shape.is_circle(edged):
+    return("It's a circle")
+  else:
+    return("It's a quadrilateral")
 
-# # displaying result
-# cv2.imshow('img', edged)
-# cv2.waitKey()
+caption = analyze(edged, p0, p1)
+
+result = edged
+
+
+# displaying result
+cv2.imshow(caption, result)
+cv2.waitKey()
