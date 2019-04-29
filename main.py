@@ -1,14 +1,15 @@
 import cv2
-import math
 import shape
 
 #reading file
-# filename = 'circle.png'
-filename = 'img/triangle.png'
-# filename = 'quadrilateral.png'
-# filename = 'quadrilateral2.png'
-# filename = 'trapezoid.png'
+# filename = 'img/circle.png'
+# filename = 'img/triangle.png'
+# filename = 'img/quadrilateral.png'
+# filename = 'img/quadrilateral2.png'
+filename = 'img/trapezoid.png'
+
 img = cv2.imread(filename)
+
 # Finding edges with Canny algorithm
 edged = cv2.Canny(img, 30, 200)
 
@@ -46,7 +47,8 @@ def analyze(edged, p0, p1):
 caption = analyze(edged, p0, p1)
 
 result = edged
-
+# cv2.putText(result, "hola", (50,50),2,1,2,2,True)
+cv2.putText(result, caption, (30, 30 ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255))
 
 # displaying result
 cv2.imshow(caption, result)
