@@ -12,7 +12,6 @@ img = cv2.imread(filename)
 
 # Finding edges with Canny algorithm
 edged = cv2.Canny(img, 30, 200)
-
 rows =  len(edged) # number of rows
 cols = len(edged[0]) # number of cols
 
@@ -46,10 +45,8 @@ def analyze(edged, p0, p1):
 
 caption = analyze(edged, p0, p1)
 
-result = edged
-# cv2.putText(result, "hola", (50,50),2,1,2,2,True)
-cv2.putText(result, caption, (30, 30 ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255))
+cv2.putText(edged, caption, (30, 30 ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255))
 
 # displaying result
-cv2.imshow(caption, result)
+cv2.imshow(caption, edged)
 cv2.waitKey()

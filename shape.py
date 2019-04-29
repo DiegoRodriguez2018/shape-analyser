@@ -33,7 +33,9 @@ def is_triangle(edged, p0, p1):
   rows =  len(edged) # number of rows
   cols = len(edged[0]) # number of cols
 
-  print(p0, p1)
+  print("p0", p0)
+  print("p1", p1)
+
   slope = get_slope(p0,p1)
   b = get_b(p0,slope)
 
@@ -57,7 +59,7 @@ def is_triangle(edged, p0, p1):
     return [left_dist*100/total_points,right_dist*100/total_points]
 
   dist = get_distribution(slope, b, p0)
-  print(dist, "%")
+  print("Point distribution", dist, "%")
   tolerance = 2
   if (dist[0] < tolerance or dist[1] < tolerance):
     return True
